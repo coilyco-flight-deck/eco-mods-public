@@ -1,4 +1,4 @@
-namespace BunWulfEducational
+﻿namespace BunWulfEducational
 {
     using System.Collections.Generic;
     using Eco.Core.Items;
@@ -156,37 +156,6 @@ namespace BunWulfEducational
         }
     }
 
-    [RequiresSkill(typeof(SurvivalistSkill), 1)]
-    public partial class ScholarsBasicUpgradeLvl2DowngradeRecipe : RecipeFamily
-    {
-        public ScholarsBasicUpgradeLvl2DowngradeRecipe()
-        {
-            var recipe = new Recipe();
-            recipe.Init(
-                name: "ScholarsBasicUpgradeLvl2Downgrade",
-                displayName: Localizer.DoStr("Scholars Basic Upgrade 2 Downgrade"),
-                ingredients: new List<IngredientElement>
-                {
-                    new IngredientElement(typeof(ScholarsBasicUpgradeLvl1Item), 1, true),
-                },
-                items: new List<CraftingElement> { new CraftingElement<BasicUpgradeLvl2Item>() }
-            );
-            this.Recipes = new List<Recipe> { recipe };
-            this.ExperienceOnCraft = 5;
-            this.LaborInCalories = CreateLaborInCaloriesValue(30, typeof(SurvivalistSkill));
-            this.CraftMinutes = CreateCraftTimeValue(
-                beneficiary: typeof(ScholarsBasicUpgradeLvl2DowngradeRecipe),
-                start: 1,
-                skillType: typeof(SurvivalistSkill)
-            );
-            this.Initialize(
-                displayText: Localizer.DoStr("Scholars Basic Upgrade 2 Downgrade"),
-                recipeType: typeof(ScholarsBasicUpgradeLvl2DowngradeRecipe)
-            );
-            CraftingComponent.AddRecipe(tableType: typeof(ResearchTableObject), recipeFamily: this);
-        }
-    }
-
     [RequiresSkill(typeof(LibrarianSkill), 2)]
     public partial class ScholarsBasicUpgradeLvl3Recipe : RecipeFamily
     {
@@ -222,37 +191,6 @@ namespace BunWulfEducational
         }
     }
 
-    [RequiresSkill(typeof(SurvivalistSkill), 1)]
-    public partial class ScholarsBasicUpgradeLvl3DowngradeRecipe : RecipeFamily
-    {
-        public ScholarsBasicUpgradeLvl3DowngradeRecipe()
-        {
-            var recipe = new Recipe();
-            recipe.Init(
-                name: "ScholarsBasicUpgradeLvl3Downgrade",
-                displayName: Localizer.DoStr("Scholars Basic Upgrade 3 Downgrade"),
-                ingredients: new List<IngredientElement>
-                {
-                    new IngredientElement(typeof(ScholarsBasicUpgradeLvl3Item), 1, true),
-                },
-                items: new List<CraftingElement> { new CraftingElement<BasicUpgradeLvl2Item>() }
-            );
-            this.Recipes = new List<Recipe> { recipe };
-            this.ExperienceOnCraft = 5;
-            this.LaborInCalories = CreateLaborInCaloriesValue(30, typeof(SurvivalistSkill));
-            this.CraftMinutes = CreateCraftTimeValue(
-                beneficiary: typeof(ScholarsBasicUpgradeLvl3DowngradeRecipe),
-                start: 1,
-                skillType: typeof(SurvivalistSkill)
-            );
-            this.Initialize(
-                displayText: Localizer.DoStr("Scholars Basic Upgrade 3 Downgrade"),
-                recipeType: typeof(ScholarsBasicUpgradeLvl3DowngradeRecipe)
-            );
-            CraftingComponent.AddRecipe(tableType: typeof(ResearchTableObject), recipeFamily: this);
-        }
-    }
-
     [RequiresSkill(typeof(LibrarianSkill), 2)]
     public partial class ScholarsBasicUpgradeLvl4Recipe : RecipeFamily
     {
@@ -283,37 +221,6 @@ namespace BunWulfEducational
             this.Initialize(
                 displayText: Localizer.DoStr("Scholars Basic Upgrade 4"),
                 recipeType: typeof(ScholarsBasicUpgradeLvl4Recipe)
-            );
-            CraftingComponent.AddRecipe(tableType: typeof(ResearchTableObject), recipeFamily: this);
-        }
-    }
-
-    [RequiresSkill(typeof(SurvivalistSkill), 1)]
-    public partial class ScholarsBasicUpgradeLvl4DowngradeRecipe : RecipeFamily
-    {
-        public ScholarsBasicUpgradeLvl4DowngradeRecipe()
-        {
-            var recipe = new Recipe();
-            recipe.Init(
-                name: "ScholarsBasicUpgradeLvl4Downgrade",
-                displayName: Localizer.DoStr("Scholars Basic Upgrade 4 Downgrade"),
-                ingredients: new List<IngredientElement>
-                {
-                    new IngredientElement(typeof(ScholarsBasicUpgradeLvl4Item), 1, true),
-                },
-                items: new List<CraftingElement> { new CraftingElement<BasicUpgradeLvl3Item>() }
-            );
-            this.Recipes = new List<Recipe> { recipe };
-            this.ExperienceOnCraft = 5;
-            this.LaborInCalories = CreateLaborInCaloriesValue(30, typeof(SurvivalistSkill));
-            this.CraftMinutes = CreateCraftTimeValue(
-                beneficiary: typeof(ScholarsBasicUpgradeLvl4DowngradeRecipe),
-                start: 1,
-                skillType: typeof(SurvivalistSkill)
-            );
-            this.Initialize(
-                displayText: Localizer.DoStr("Scholars Basic Upgrade 4 Downgrade"),
-                recipeType: typeof(ScholarsBasicUpgradeLvl4DowngradeRecipe)
             );
             CraftingComponent.AddRecipe(tableType: typeof(ResearchTableObject), recipeFamily: this);
         }

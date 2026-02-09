@@ -1,4 +1,4 @@
-namespace BunWulfEducational
+﻿namespace BunWulfEducational
 {
     using System.Collections.Generic;
     using Eco.Core.Items;
@@ -156,37 +156,6 @@ namespace BunWulfEducational
         }
     }
 
-    [RequiresSkill(typeof(SurvivalistSkill), 1)]
-    public partial class ScholarsModernUpgradeLvl2DowngradeRecipe : RecipeFamily
-    {
-        public ScholarsModernUpgradeLvl2DowngradeRecipe()
-        {
-            var recipe = new Recipe();
-            recipe.Init(
-                name: "ScholarsModernUpgradeLvl2Downgrade",
-                displayName: Localizer.DoStr("Scholars Modern Upgrade 2 Downgrade"),
-                ingredients: new List<IngredientElement>
-                {
-                    new IngredientElement(typeof(ScholarsModernUpgradeLvl2Item), 1, true),
-                },
-                items: new List<CraftingElement> { new CraftingElement<ModernUpgradeLvl1Item>() }
-            );
-            this.Recipes = new List<Recipe> { recipe };
-            this.ExperienceOnCraft = 15;
-            this.LaborInCalories = CreateLaborInCaloriesValue(30, typeof(SurvivalistSkill));
-            this.CraftMinutes = CreateCraftTimeValue(
-                beneficiary: typeof(ScholarsModernUpgradeLvl2DowngradeRecipe),
-                start: 1,
-                skillType: typeof(SurvivalistSkill)
-            );
-            this.Initialize(
-                displayText: Localizer.DoStr("Scholars Modern Upgrade 2 Downgrade"),
-                recipeType: typeof(ScholarsModernUpgradeLvl2DowngradeRecipe)
-            );
-            CraftingComponent.AddRecipe(tableType: typeof(LaboratoryObject), recipeFamily: this);
-        }
-    }
-
     [RequiresSkill(typeof(LibrarianSkill), 6)]
     public partial class ScholarsModernUpgradeLvl3Recipe : RecipeFamily
     {
@@ -222,37 +191,6 @@ namespace BunWulfEducational
         }
     }
 
-    [RequiresSkill(typeof(SurvivalistSkill), 1)]
-    public partial class ScholarsModernUpgradeLvl3DowngradeRecipe : RecipeFamily
-    {
-        public ScholarsModernUpgradeLvl3DowngradeRecipe()
-        {
-            var recipe = new Recipe();
-            recipe.Init(
-                name: "ScholarsModernUpgradeLvl3Downgrade",
-                displayName: Localizer.DoStr("Scholars Modern Upgrade 3 Downgrade"),
-                ingredients: new List<IngredientElement>
-                {
-                    new IngredientElement(typeof(ScholarsModernUpgradeLvl3Item), 1, true),
-                },
-                items: new List<CraftingElement> { new CraftingElement<ModernUpgradeLvl2Item>() }
-            );
-            this.Recipes = new List<Recipe> { recipe };
-            this.ExperienceOnCraft = 15;
-            this.LaborInCalories = CreateLaborInCaloriesValue(30, typeof(SurvivalistSkill));
-            this.CraftMinutes = CreateCraftTimeValue(
-                beneficiary: typeof(ScholarsModernUpgradeLvl3DowngradeRecipe),
-                start: 1,
-                skillType: typeof(SurvivalistSkill)
-            );
-            this.Initialize(
-                displayText: Localizer.DoStr("Scholars Modern Upgrade 3 Downgrade"),
-                recipeType: typeof(ScholarsModernUpgradeLvl3DowngradeRecipe)
-            );
-            CraftingComponent.AddRecipe(tableType: typeof(LaboratoryObject), recipeFamily: this);
-        }
-    }
-
     [RequiresSkill(typeof(LibrarianSkill), 6)]
     public partial class ScholarsModernUpgradeLvl4Recipe : RecipeFamily
     {
@@ -283,37 +221,6 @@ namespace BunWulfEducational
             this.Initialize(
                 displayText: Localizer.DoStr("Scholars Modern Upgrade 4"),
                 recipeType: typeof(ScholarsModernUpgradeLvl4Recipe)
-            );
-            CraftingComponent.AddRecipe(tableType: typeof(LaboratoryObject), recipeFamily: this);
-        }
-    }
-
-    [RequiresSkill(typeof(SurvivalistSkill), 1)]
-    public partial class ScholarsModernUpgradeLvl4DowngradeRecipe : RecipeFamily
-    {
-        public ScholarsModernUpgradeLvl4DowngradeRecipe()
-        {
-            var recipe = new Recipe();
-            recipe.Init(
-                name: "ScholarsModernUpgradeLvl4Downgrade",
-                displayName: Localizer.DoStr("Scholars Modern Upgrade 4 Downgrade"),
-                ingredients: new List<IngredientElement>
-                {
-                    new IngredientElement(typeof(ScholarsModernUpgradeLvl4Item), 1, true),
-                },
-                items: new List<CraftingElement> { new CraftingElement<ModernUpgradeLvl3Item>() }
-            );
-            this.Recipes = new List<Recipe> { recipe };
-            this.ExperienceOnCraft = 15;
-            this.LaborInCalories = CreateLaborInCaloriesValue(30, typeof(SurvivalistSkill));
-            this.CraftMinutes = CreateCraftTimeValue(
-                beneficiary: typeof(ScholarsModernUpgradeLvl4DowngradeRecipe),
-                start: 1,
-                skillType: typeof(SurvivalistSkill)
-            );
-            this.Initialize(
-                displayText: Localizer.DoStr("Scholars Modern Upgrade 4 Downgrade"),
-                recipeType: typeof(ScholarsModernUpgradeLvl4DowngradeRecipe)
             );
             CraftingComponent.AddRecipe(tableType: typeof(LaboratoryObject), recipeFamily: this);
         }

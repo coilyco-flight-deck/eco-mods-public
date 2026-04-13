@@ -3,4 +3,5 @@ obj/
 eco-server/
 .vs/
 .config/
+.claude/
 *.zip

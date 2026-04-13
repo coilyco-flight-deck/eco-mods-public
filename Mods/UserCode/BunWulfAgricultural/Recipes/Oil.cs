@@ -33,9 +33,7 @@ namespace BunWulfAgricultural
             this.CraftMinutes = CreateCraftTimeValue(
                 beneficiary: typeof(MashTallowRecipe),
                 start: 0.1f,
-                skillType: typeof(CookingSkill),
-                typeof(CookingFocusedSpeedTalent),
-                typeof(CookingParallelSpeedTalent)
+                skillType: typeof(CookingSkill)
             );
             this.Initialize(
                 displayText: Localizer.DoStr(name),
@@ -68,9 +66,7 @@ namespace BunWulfAgricultural
             this.CraftMinutes = CreateCraftTimeValue(
                 beneficiary: typeof(FlaxyOilRecipe),
                 start: 0.1f,
-                skillType: typeof(CookingSkill),
-                typeof(CookingFocusedSpeedTalent),
-                typeof(CookingParallelSpeedTalent)
+                skillType: typeof(CookingSkill)
             );
             this.Initialize(displayText: Localizer.DoStr(name), recipeType: typeof(FlaxyOilRecipe));
             CraftingComponent.AddRecipe(tableType: typeof(CastIronStoveObject), recipeFamily: this);
@@ -100,9 +96,7 @@ namespace BunWulfAgricultural
             this.CraftMinutes = CreateCraftTimeValue(
                 beneficiary: typeof(OilyOilRecipe),
                 start: 0.1f,
-                skillType: typeof(CookingSkill),
-                typeof(CookingFocusedSpeedTalent),
-                typeof(CookingParallelSpeedTalent)
+                skillType: typeof(CookingSkill)
             );
             this.Initialize(displayText: Localizer.DoStr(name), recipeType: typeof(OilyOilRecipe));
             CraftingComponent.AddRecipe(tableType: typeof(CastIronStoveObject), recipeFamily: this);

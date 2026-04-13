@@ -18,7 +18,7 @@ namespace BunWulfAgricultural
                 displayName: Localizer.DoStr("Grease from Fat"),
                 ingredients: new List<IngredientElement>
                 {
-                    new("Fat", 2, typeof(ButcherySkill), typeof(ButcheryLavishResourcesTalent)),
+                    new("Fat", 2, typeof(ButcherySkill)),
                 },
                 items: new List<CraftingElement> { new CraftingElement<LubricantItem>(4) }
             );
@@ -28,9 +28,7 @@ namespace BunWulfAgricultural
             this.CraftMinutes = CreateCraftTimeValue(
                 beneficiary: typeof(FattyGreaseRecipe),
                 start: 1.5f,
-                skillType: typeof(ButcherySkill),
-                typeof(ButcheryFocusedSpeedTalent),
-                typeof(ButcheryParallelSpeedTalent)
+                skillType: typeof(ButcherySkill)
             );
             this.Initialize(
                 displayText: Localizer.DoStr("Grease from Fat"),
@@ -51,7 +49,7 @@ namespace BunWulfAgricultural
                 displayName: Localizer.DoStr("Grease from Oil"),
                 ingredients: new List<IngredientElement>
                 {
-                    new("Oil", 2, typeof(ButcherySkill), typeof(ButcheryLavishResourcesTalent)),
+                    new("Oil", 2, typeof(ButcherySkill)),
                 },
                 items: new List<CraftingElement> { new CraftingElement<LubricantItem>(4) }
             );
@@ -61,9 +59,7 @@ namespace BunWulfAgricultural
             this.CraftMinutes = CreateCraftTimeValue(
                 beneficiary: typeof(OilyGreaseRecipe),
                 start: 1.5f,
-                skillType: typeof(ButcherySkill),
-                typeof(ButcheryFocusedSpeedTalent),
-                typeof(ButcheryParallelSpeedTalent)
+                skillType: typeof(ButcherySkill)
             );
             this.Initialize(
                 displayText: Localizer.DoStr("Grease from Oil"),

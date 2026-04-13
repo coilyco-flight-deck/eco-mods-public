@@ -122,26 +122,22 @@ namespace BunWulfBioChemical
                     new(
                         typeof(IronBarItem),
                         20,
-                        typeof(MechanicsSkill),
-                        typeof(MechanicsLavishResourcesTalent)
+                        typeof(MechanicsSkill)
                     ),
                     new(
                         typeof(GlassItem),
                         15,
-                        typeof(MechanicsSkill),
-                        typeof(MechanicsLavishResourcesTalent)
+                        typeof(MechanicsSkill)
                     ),
                     new(
                         typeof(PaperItem),
                         20,
-                        typeof(MechanicsSkill),
-                        typeof(MechanicsLavishResourcesTalent)
+                        typeof(MechanicsSkill)
                     ),
                     new(
                         "Lumber",
                         8,
-                        typeof(MechanicsSkill),
-                        typeof(MechanicsLavishResourcesTalent)
+                        typeof(MechanicsSkill)
                     ), //noloc
                 },
                 items: new List<CraftingElement> { new CraftingElement<ChemicalLaboratoryItem>() }
@@ -152,9 +148,7 @@ namespace BunWulfBioChemical
             CraftMinutes = CreateCraftTimeValue(
                 beneficiary: typeof(ChemicalLaboratoryRecipe),
                 start: 15,
-                skillType: typeof(MechanicsSkill),
-                typeof(MechanicsFocusedSpeedTalent),
-                typeof(MechanicsParallelSpeedTalent)
+                skillType: typeof(MechanicsSkill)
             );
             Initialize(
                 displayText: Localizer.DoStr("Chemlab"),

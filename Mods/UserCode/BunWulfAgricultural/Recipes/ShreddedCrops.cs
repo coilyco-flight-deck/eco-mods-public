@@ -18,7 +18,7 @@ namespace BunWulfAgricultural
                 displayName: Localizer.DoStr("Shredded Crops"),
                 ingredients: new List<IngredientElement>
                 {
-                    new("Vegetable", 1, typeof(FarmingSkill), typeof(FarmingLavishResourcesTalent)),
+                    new("Vegetable", 1, typeof(FarmingSkill)),
                 },
                 items: new List<CraftingElement> { new CraftingElement<PlantFibersItem>(5) }
             );

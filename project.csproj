@@ -9,7 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.9.1" />
     <PackageReference Include="Eco.ReferenceAssemblies" Version="0.13.0-beta-release-998" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Plant files use partial methods only available when compiled by the Eco game server -->
+    <Compile Remove="Mods/UserCode/BunWulfAgricultural/Plant/**" />
   </ItemGroup>
 
 </Project>

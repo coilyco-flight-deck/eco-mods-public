@@ -22,8 +22,7 @@ namespace BunWulfAgricultural
                     new(
                         "Vegetable",
                         20,
-                        typeof(FarmingSkill),
-                        typeof(FarmingLavishResourcesTalent)
+                        typeof(FarmingSkill)
                     ),
                 },
                 items: new List<CraftingElement>
@@ -38,9 +37,7 @@ namespace BunWulfAgricultural
             CraftMinutes = CreateCraftTimeValue(
                 beneficiary: typeof(BiocharRecipe),
                 start: 1,
-                skillType: typeof(FarmingSkill),
-                typeof(FarmingFocusedSpeedTalent),
-                typeof(FarmingParallelSpeedTalent)
+                skillType: typeof(FarmingSkill)
             );
             Initialize(
                 displayText: Localizer.DoStr("Biochar Charcoal Burning"),

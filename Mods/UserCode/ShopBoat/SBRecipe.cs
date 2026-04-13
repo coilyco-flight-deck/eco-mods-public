@@ -25,8 +25,7 @@ namespace ShopBoat
                     new(
                         typeof(NailItem),
                         40,
-                        typeof(ShipwrightSkill),
-                        typeof(ShipwrightLavishResourcesTalent)
+                        typeof(ShipwrightSkill)
                     ),
                 },
                 items: new List<CraftingElement> { new CraftingElement<ShopBoatItem>() }

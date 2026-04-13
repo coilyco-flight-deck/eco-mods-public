@@ -21,20 +21,17 @@ namespace BunWulfHardwareCo
                     new(
                         typeof(IronBarItem),
                         12,
-                        typeof(MechanicsSkill),
-                        typeof(MechanicsLavishResourcesTalent)
+                        typeof(MechanicsSkill)
                     ),
                     new(
                         typeof(GlassItem),
                         5,
-                        typeof(MechanicsSkill),
-                        typeof(MechanicsLavishResourcesTalent)
+                        typeof(MechanicsSkill)
                     ),
                     new(
                         typeof(CopperWiringItem),
                         5,
-                        typeof(MechanicsSkill),
-                        typeof(MechanicsLavishResourcesTalent)
+                        typeof(MechanicsSkill)
                     ),
                     new(typeof(LightBulbItem), 1, true),
                 },
@@ -46,9 +43,7 @@ namespace BunWulfHardwareCo
             this.CraftMinutes = CreateCraftTimeValue(
                 beneficiary: typeof(LowTechStreetlampRecipe),
                 start: 6,
-                skillType: typeof(MechanicsSkill),
-                typeof(MechanicsFocusedSpeedTalent),
-                typeof(MechanicsParallelSpeedTalent)
+                skillType: typeof(MechanicsSkill)
             );
             this.Initialize(
                 displayText: Localizer.DoStr("Low Tech Streetlamp"),

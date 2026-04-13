@@ -29,9 +29,7 @@ namespace BunWulfAgricultural
             CraftMinutes = CreateCraftTimeValue(
                 beneficiary: typeof(BerryExtractFertilizerMixing),
                 start: 0.25f,
-                skillType: typeof(FertilizersSkill),
-                typeof(FertilizersFocusedSpeedTalent),
-                typeof(FertilizersParallelSpeedTalent)
+                skillType: typeof(FertilizersSkill)
             );
             Initialize(
                 displayText: Localizer.DoStr("Berry Extract Fertilizer Mixing"),
@@ -63,9 +61,7 @@ namespace BunWulfAgricultural
             CraftMinutes = CreateCraftTimeValue(
                 beneficiary: typeof(BloodMealFertilizerMixing),
                 start: 0.25f,
-                skillType: typeof(FertilizersSkill),
-                typeof(FertilizersFocusedSpeedTalent),
-                typeof(FertilizersParallelSpeedTalent)
+                skillType: typeof(FertilizersSkill)
             );
             Initialize(
                 displayText: Localizer.DoStr("Blood Meal Fertilizer Mixing"),
@@ -97,9 +93,7 @@ namespace BunWulfAgricultural
             CraftMinutes = CreateCraftTimeValue(
                 beneficiary: typeof(CamasAshFertilizerMixing),
                 start: 0.25f,
-                skillType: typeof(FertilizersSkill),
-                typeof(FertilizersFocusedSpeedTalent),
-                typeof(FertilizersParallelSpeedTalent)
+                skillType: typeof(FertilizersSkill)
             );
             Initialize(
                 displayText: Localizer.DoStr("Camas Ash Fertilizer Mixing"),
@@ -131,9 +125,7 @@ namespace BunWulfAgricultural
             CraftMinutes = CreateCraftTimeValue(
                 beneficiary: typeof(HideAshFertilizerMixing),
                 start: 0.25f,
-                skillType: typeof(FertilizersSkill),
-                typeof(FertilizersFocusedSpeedTalent),
-                typeof(FertilizersParallelSpeedTalent)
+                skillType: typeof(FertilizersSkill)
             );
             Initialize(
                 displayText: Localizer.DoStr("Hide Ash Fertilizer Mixing"),
@@ -165,9 +157,7 @@ namespace BunWulfAgricultural
             CraftMinutes = CreateCraftTimeValue(
                 beneficiary: typeof(PeltFertilizerMixing),
                 start: 0.25f,
-                skillType: typeof(FertilizersSkill),
-                typeof(FertilizersFocusedSpeedTalent),
-                typeof(FertilizersParallelSpeedTalent)
+                skillType: typeof(FertilizersSkill)
             );
             Initialize(
                 displayText: Localizer.DoStr("Pelt Fertilizer Mixing"),
@@ -199,9 +189,7 @@ namespace BunWulfAgricultural
             CraftMinutes = CreateCraftTimeValue(
                 beneficiary: typeof(PhosphateFertilizerMixing),
                 start: 0.25f,
-                skillType: typeof(FertilizersSkill),
-                typeof(FertilizersFocusedSpeedTalent),
-                typeof(FertilizersParallelSpeedTalent)
+                skillType: typeof(FertilizersSkill)
             );
             Initialize(
                 displayText: Localizer.DoStr("Phosphate Fertilizer Mixing"),

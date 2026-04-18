@@ -1,3 +1,7 @@
+[![Eco by Strange Loop Games](https://cdn.cloudflare.steamstatic.com/steam/apps/382310/header.jpg)](https://store.steampowered.com/app/382310/Eco/)
+
+<sub>Banner: Steam header for [Eco](https://store.steampowered.com/app/382310/Eco/) by [Strange Loop Games](https://strangeloopgames.com/). Used here for attribution; not my artwork.</sub>
+
 # eco-mods-public
 
 A collection of public C# gameplay mods for [Eco](https://play.eco/), [Strange Loop Games](https://strangeloopgames.com/)' multiplayer survival and simulation game. The mods add new professions, recipes, crafting stations, farming extensions, environmental systems, and mining and quarrying mechanics. Everything targets `Eco.ReferenceAssemblies` (v0.13.0-beta as of Cycle 13) and builds with `dotnet build`; see [AGENTS.md](AGENTS.md) for the full project layout, code-generation notes, and conventions.

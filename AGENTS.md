@@ -115,3 +115,41 @@ Deployment targets:
 - **MinesQuarries** provides infinite resources but with high calorie costs, long craft times, and waste rock — designed to require economic planning and vertical integration.
 - **Librarian** can craft any skill book at basic proficiency — generated from core Eco files to stay in sync with game updates.
 - Mods are distributed as `.zip` files that users extract to their server root.
+
+## Patch notes on server deploys
+
+Whenever a change from this repo reaches the live Sirens Eco server, post a patch note to the `#general-public` Discord channel in the Sirens server. Players there play multiple cycles and read patch notes carefully.
+
+### When to post
+
+Triggers specific to eco-mods-public:
+
+- `invoke push-asset --mod=<Name>` from this repo (scp + unzip into `/home/kai/Steam/steamapps/common/EcoServer/Mods/UserCode/`).
+- `inv mods-sync` in eco-cycle-prep, when it picks up a change from here.
+- A mod.io release that Sirens then pulls.
+- Any direct ssh edit to `/home/kai/Steam/steamapps/common/EcoServer/Mods/UserCode/<Mod>/` on kai-server.
+
+A plain commit to `main` is not a deploy trigger by itself. Post when the bits actually reach the Sirens server. Post in real time, in the same turn as the deploy. Do not describe the post as a backfill, delayed notice, or after-the-fact summary. Write as if the change just landed.
+
+### Audience and tone
+
+Adult gamers on a small private Eco server. Highly engaged. They play multiple cycles and read patch notes carefully.
+
+- Assume they know the game. Use skill names, tier numbers, recipe names, and mechanics directly. Do not re-explain what a "specialty" is.
+- Patch-notes voice: mechanical and specific. Numbers over adjectives. "Carpentry now costs 2 stars (tier 2) + 1 per prior specialty" beats "specialty costs are more realistic now."
+- No marketing hype ("we're excited to", "enjoy!", "huge update!"). No condescension ("don't worry if this sounds complicated.").
+- Describe the before / after when it's a fix. Describe the new capability when it's a feature.
+- No em-dashes. Use periods, commas, parens, or " - " for mid-sentence sidebars. Same rule Kai applies elsewhere.
+- Under ~1500 characters so it fits in a single Discord message. Sign off with the repo + mod touched in brackets, e.g. `[eco-mods-public / BunWulfEducational]`.
+
+### Sending the message
+
+Channel ID is at SSM `/discord/channel/general-public`. Bot token is at `/sirens-echo/discord-bot-token` (distinct from `/eco/discord-bot-token`, which is DiscordLink's in-game bridge). Pull both from SSM each time. Do not hardcode.
+
+```sh
+# On Windows / Git Bash, prefix each aws call with MSYS_NO_PATHCONV=1. On Mac, drop it.
+BOT_TOKEN=$(MSYS_NO_PATHCONV=1 aws ssm get-parameter --name /sirens-echo/discord-bot-token --with-decryption --query Parameter.Value --output text)
+CHANNEL=$(MSYS_NO_PATHCONV=1 aws ssm get-parameter --name /discord/channel/general-public --with-decryption --query Parameter.Value --output text)
+BODY=$(python -c 'import json,sys; print(json.dumps({"content": sys.stdin.read()}))' <<< 'YOUR MESSAGE BODY HERE')
+curl -sS -H "Authorization: Bot $BOT_TOKEN" -H "Content-Type: application/json" -d "$BODY" "https://discord.com/api/v10/channels/$CHANNEL/messages"
+```

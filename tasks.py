@@ -91,6 +91,12 @@ def copy_paths(origin_path, target_path):
 
 
 @invoke.task
+def build(ctx: invoke.Context):
+    """Type-check all mods against Eco.ReferenceAssemblies via `dotnet build`."""
+    ctx.run("dotnet build --nologo", echo=True)
+
+
+@invoke.task
 def copy_assets(ctx: invoke.Context, branch=""):
     print("Cleaning out assets folder")
     if os.path.exists("./eco-server/assets"):

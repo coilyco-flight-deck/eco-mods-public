@@ -28,7 +28,7 @@
             Localizer.DoStr("Scholars Advanced Upgrade 1");
 
         public ScholarsAdvancedUpgradeLvl1Item()
-            : base(ModuleTypes.ResourceEfficiency | ModuleTypes.SpeedEfficiency, 0.85f) { }
+            : base(ModuleTypes.ResourceEfficiency | ModuleTypes.SpeedEfficiency, 0.90f) { }
     }
 
     [Serialized]
@@ -48,7 +48,7 @@
             Localizer.DoStr("Scholars Advanced Upgrade 2");
 
         public ScholarsAdvancedUpgradeLvl2Item()
-            : base(ModuleTypes.ResourceEfficiency | ModuleTypes.SpeedEfficiency, 0.7f) { }
+            : base(ModuleTypes.ResourceEfficiency | ModuleTypes.SpeedEfficiency, 0.85f) { }
     }
 
     [Serialized]
@@ -68,13 +68,13 @@
             Localizer.DoStr("Scholars Advanced Upgrade 3");
 
         public ScholarsAdvancedUpgradeLvl3Item()
-            : base(ModuleTypes.ResourceEfficiency | ModuleTypes.SpeedEfficiency, 0.55f) { }
+            : base(ModuleTypes.ResourceEfficiency | ModuleTypes.SpeedEfficiency, 0.80f) { }
     }
 
     [Serialized]
     [LocDisplayName("Scholars Advanced Upgrade 4")]
     [LocDescription(
-        "SAU4, A thinking Econian's Advanced Upgrade that increases crafting efficiency, as good as a AU5 (specialized), but more flexible."
+        "SAU4, A thinking Econian's Advanced Upgrade that increases crafting efficiency, as good as a specialty upgrade, but more flexible."
     )]
     [Weight(1)]
     [Ecopedia("Upgrade Modules", "Advanced Upgrades", createAsSubPage: true)]
@@ -88,7 +88,7 @@
             Localizer.DoStr("Scholars Advanced Upgrade 4");
 
         public ScholarsAdvancedUpgradeLvl4Item()
-            : base(ModuleTypes.ResourceEfficiency | ModuleTypes.SpeedEfficiency, 0.50f) { }
+            : base(ModuleTypes.ResourceEfficiency | ModuleTypes.SpeedEfficiency, 0.75f) { }
     }
 
     [RequiresSkill(typeof(LibrarianSkill), 4)]

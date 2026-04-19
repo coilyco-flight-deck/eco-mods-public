@@ -27,7 +27,7 @@
         public override LocString DisplayNamePlural => Localizer.DoStr("Scholars Basic Upgrade 1");
 
         public ScholarsBasicUpgradeLvl1Item()
-            : base(ModuleTypes.ResourceEfficiency | ModuleTypes.SpeedEfficiency, 0.85f) { }
+            : base(ModuleTypes.ResourceEfficiency | ModuleTypes.SpeedEfficiency, 0.90f) { }
     }
 
     [Serialized]
@@ -46,7 +46,7 @@
         public override LocString DisplayNamePlural => Localizer.DoStr("Scholars Basic Upgrade 2");
 
         public ScholarsBasicUpgradeLvl2Item()
-            : base(ModuleTypes.ResourceEfficiency | ModuleTypes.SpeedEfficiency, 0.7f) { }
+            : base(ModuleTypes.ResourceEfficiency | ModuleTypes.SpeedEfficiency, 0.85f) { }
     }
 
     [Serialized]
@@ -65,13 +65,13 @@
         public override LocString DisplayNamePlural => Localizer.DoStr("Scholars Basic Upgrade 3");
 
         public ScholarsBasicUpgradeLvl3Item()
-            : base(ModuleTypes.ResourceEfficiency | ModuleTypes.SpeedEfficiency, 0.55f) { }
+            : base(ModuleTypes.ResourceEfficiency | ModuleTypes.SpeedEfficiency, 0.80f) { }
     }
 
     [Serialized]
     [LocDisplayName("Scholars Basic Upgrade 4")]
     [LocDescription(
-        "SBU4, A thinking Econian's Basic Upgrade that increases crafting efficiency, as good as a BU5 (specialized), but more flexible."
+        "SBU4, A thinking Econian's Basic Upgrade that increases crafting efficiency, as good as a specialty upgrade, but more flexible."
     )]
     [Weight(1)]
     [Ecopedia("Upgrade Modules", "Basic Upgrades", createAsSubPage: true)]
@@ -84,7 +84,7 @@
         public override LocString DisplayNamePlural => Localizer.DoStr("Scholars Basic Upgrade 4");
 
         public ScholarsBasicUpgradeLvl4Item()
-            : base(ModuleTypes.ResourceEfficiency | ModuleTypes.SpeedEfficiency, 0.50f) { }
+            : base(ModuleTypes.ResourceEfficiency | ModuleTypes.SpeedEfficiency, 0.75f) { }
     }
 
     [RequiresSkill(typeof(LibrarianSkill), 2)]

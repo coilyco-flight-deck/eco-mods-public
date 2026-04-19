@@ -116,59 +116,30 @@ Deployment targets:
 - **Librarian** can craft any skill book at basic proficiency — generated from core Eco files to stay in sync with game updates.
 - Mods are distributed as `.zip` files that users extract to their server root.
 
-## Patch notes on server deploys
+## Third-party source code reference
 
-Whenever a change from this repo reaches the live Sirens Eco server, post a patch note to the `#general-public` Discord channel in the Sirens server. Players there play multiple cycles and read patch notes carefully.
+The `../Eco/` sibling directory contains vendor-provided game source. Use it as read-only background for type signatures, API shapes, and reproducing vanilla formulas, but do not paste, quote, or link snippets of it in anything that leaves this repo: commit messages, PR descriptions, public READMEs, issues, Discord posts, or other published docs. Describe game behavior in your own words and use fresh examples rather than lifting source prose.
 
-### When to post
+## Server communications
 
-Triggers specific to eco-mods-public:
+When a change from this repo reaches the live Sirens Eco server, post to the Sirens Discord. The tooling lives in `../eco-cycle-prep/` (never reimplement locally):
+
+- Patch note to `#general-public`: `cd ../eco-cycle-prep && inv discord-post --channel=general-public --from-file=<path-to-body.md>`
+- Pre-restart heads-up to `#eco-status`: `cd ../eco-cycle-prep && inv restart-notice [--reason="<short reason>"]`
+
+For the voice / tone rules, the when-to-post rules, and the private voice guide pointer, consult [`../eco-cycle-prep/AGENTS.md`](../eco-cycle-prep/AGENTS.md). Do not inline curl snippets or channel IDs here.
+
+### Deploy triggers for eco-mods-public
 
 - `invoke push-asset --mod=<Name>` from this repo (scp + unzip into `/home/kai/Steam/steamapps/common/EcoServer/Mods/UserCode/`).
 - `inv mods-sync` in eco-cycle-prep, when it picks up a change from here.
 - A mod.io release that Sirens then pulls.
 - Any direct ssh edit to `/home/kai/Steam/steamapps/common/EcoServer/Mods/UserCode/<Mod>/` on kai-server.
 
-A plain commit to `main` is not a deploy trigger by itself. Post when the bits actually reach the Sirens server. Post in real time, in the same turn as the deploy. Do not describe the post as a backfill, delayed notice, or after-the-fact summary. Write as if the change just landed.
+A plain commit to `main` is not a deploy trigger by itself. Post when the bits actually reach the Sirens server, in the same turn as the deploy. Do not describe the post as a backfill, delayed notice, or after-the-fact summary.
 
-### Audience and tone
+### Link back to the commit
 
-Adult gamers on a small private Eco server. Highly engaged. They play multiple cycles and read patch notes carefully.
+This repo is **public** (`github.com/coilysiren/eco-mods-public`). When a patch note describes a change whose source landed here, include a link to the relevant commit (or the compare view for multi-commit changes) in the message body. Players and outside contributors can then trace exactly what changed without reverse-engineering it from the patch-note prose.
 
-- Assume they know the game. Use skill names, tier numbers, recipe names, and mechanics directly. Do not re-explain what a "specialty" is.
-- Patch-notes voice: mechanical and specific. Numbers over adjectives. "Carpentry now costs 2 stars (tier 2) + 1 per prior specialty" beats "specialty costs are more realistic now."
-- No marketing hype ("we're excited to", "enjoy!", "huge update!"). No condescension ("don't worry if this sounds complicated.").
-- Describe the before / after when it's a fix. Describe the new capability when it's a feature.
-- No em-dashes. Use periods, commas, parens, or " - " for mid-sentence sidebars. Same rule Kai applies elsewhere.
-- Under ~1500 characters so it fits in a single Discord message. Sign off with the repo + mod touched in brackets, e.g. `[eco-mods-public / BunWulfEducational]`.
-
-### Sending the message
-
-Channel ID is at SSM `/discord/channel/general-public`. For the bot token, **always** use `/sirens-echo/discord-bot-token` (posts as the `sirens-echo` bot). Never use `/eco/discord-bot-token` for manual messages. That one belongs to the `eco-sirens` bot, which is DiscordLink's in-game bridge and already auto-posts things like `Server Started` / `Server Stopped` embeds plus in-game and Discord chat bridging. Mixing the two bots in one channel creates confusion about which posts are automated vs. manual. Pull both values from SSM each time. Do not hardcode.
-
-```sh
-# On Windows / Git Bash, prefix each aws call with MSYS_NO_PATHCONV=1. On Mac, drop it.
-BOT_TOKEN=$(MSYS_NO_PATHCONV=1 aws ssm get-parameter --name /sirens-echo/discord-bot-token --with-decryption --query Parameter.Value --output text)
-CHANNEL=$(MSYS_NO_PATHCONV=1 aws ssm get-parameter --name /discord/channel/general-public --with-decryption --query Parameter.Value --output text)
-BODY=$(python -c 'import json,sys; print(json.dumps({"content": sys.stdin.read()}))' <<< 'YOUR MESSAGE BODY HERE')
-curl -sS -H "Authorization: Bot $BOT_TOKEN" -H "Content-Type: application/json" -d "$BODY" "https://discord.com/api/v10/channels/$CHANNEL/messages"
-```
-
-## Server restart notice (#eco-status)
-
-Before you restart the Eco server on kai-server (required for Mods/UserCode/*.cs changes to take effect, since Eco compiles mods on server startup), post a heads-up embed to `#eco-status`. DiscordLink auto-posts `Server Stopped :x:` and `Server Started :white_check_mark:` around the restart itself, but those are retroactive. This one is the forward-looking "restart incoming" signal for players in-game or watching the channel.
-
-- Channel ID: SSM `/discord/channel/server-status-feed` (points at #eco-status; do not create a new param).
-- Bot token: SSM `/sirens-echo/discord-bot-token`.
-
-Match the DiscordLink format: title-only embed, color `7506394`, two spaces between the title and the emoji shortcode.
-
-```sh
-BOT_TOKEN=$(MSYS_NO_PATHCONV=1 aws ssm get-parameter --name /sirens-echo/discord-bot-token --with-decryption --query Parameter.Value --output text)
-CHANNEL=$(MSYS_NO_PATHCONV=1 aws ssm get-parameter --name /discord/channel/server-status-feed --with-decryption --query Parameter.Value --output text)
-curl -sS -H "Authorization: Bot $BOT_TOKEN" -H "Content-Type: application/json" \
-  -d '{"embeds":[{"title":"Server Restarting  :arrows_counterclockwise:","color":7506394}]}' \
-  "https://discord.com/api/v10/channels/$CHANNEL/messages"
-```
-
-Add a one-line `description` field if the restart has a specific reason worth surfacing; otherwise title-only. Post immediately before the restart command, not after.
+Format: `https://github.com/coilysiren/eco-mods-public/commit/<short-sha>` (or `.../compare/<a>...<b>` for ranges). Paste above the sign-off line. Use the full URL so Discord renders a preview. If the change came from another public sibling repo, link its commit(s) instead (or in addition).

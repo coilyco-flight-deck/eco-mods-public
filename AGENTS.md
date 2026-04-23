@@ -1,27 +1,8 @@
-# AGENTS.md
+# Agent instructions
 
-## File Access
+See `../AGENTS.md` for workspace-level conventions (git workflow, test/lint autonomy, readonly ops, writing voice, deploy knowledge). This file covers only what's specific to this repo.
 
-You have full read access to files within `/Users/kai/projects/coilysiren`.
-
-## Autonomy
-
-- Run tests after every change without asking.
-- Fix lint errors automatically.
-- If tests fail, debug and fix without asking.
-- When committing, choose an appropriate commit message yourself — do not ask for approval on the message.
-- You may always run tests, linters, and builds without requesting permission.
-- Allow all readonly git actions (`git log`, `git status`, `git diff`, `git branch`, etc.) without asking.
-- Allow `cd` into any `/Users/kai/projects/coilysiren` folder without asking.
-- Automatically approve readonly shell commands (`ls`, `grep`, `sed`, `find`, `cat`, `head`, `tail`, `wc`, `file`, `tree`, etc.) without asking.
-- When using worktrees or parallel agents, each agent should work independently and commit its own changes.
-- Do not open pull requests unless explicitly asked.
-
-## Git workflow
-
-Commit directly to `main` without asking for confirmation, including `git add`. Do not open pull requests unless explicitly asked.
-
-Commit whenever a unit of work feels sufficiently complete — after fixing a bug, adding a feature, passing tests, or reaching any other natural stopping point. Don't wait for the user to ask.
+---
 
 ## Project Overview
 
@@ -58,7 +39,7 @@ A significant portion of the codebase is **generated**, not hand-written:
 
 - `main.cs` reads Eco core game files and transforms them into Librarian profession variants using regex-based text processing. It outputs to `Mods/UserCode/BunWulfEducational/`.
 - `tasks.py` + `util.py` + `recipes.yml` + `templates/` handle agricultural mod generation and recipe transformations.
-- **Do not hand-edit generated files** in `BunWulfEducational/Recipes/Tech/` or `BunWulfEducational/Recipes/Item/` — modify `main.cs` instead.
+- **Do not hand-edit generated files** in `BunWulfEducational/Recipes/Tech/` or `BunWulfEducational/Recipes/Item/` - modify `main.cs` instead.
 - Plant files in `BunWulfAgricultural/Plant/` are generated from `templates/plant.template`.
 
 ## Conventions
@@ -75,10 +56,10 @@ A significant portion of the codebase is **generated**, not hand-written:
 
 ### Namespaces
 
-- `BunWulfModsPublic` — CLI entry point / main.cs
-- `BunWulfBioChemical` — Biochemist mod
-- `BunWulfEducational` — Librarian mod
-- `Eco.Mods.Organisms` — Plant/organism modifications
+- `BunWulfModsPublic` - CLI entry point / main.cs
+- `BunWulfBioChemical` - Biochemist mod
+- `BunWulfEducational` - Librarian mod
+- `Eco.Mods.Organisms` - Plant/organism modifications
 - Each mod has its own namespace; do not mix them.
 
 ### Mod Registration
@@ -111,9 +92,9 @@ Deployment targets:
 
 ## Key Design Decisions
 
-- **Biochemist** is intentionally slower than oil drilling — it's a sustainable alternative, not a direct replacement.
-- **MinesQuarries** provides infinite resources but with high calorie costs, long craft times, and waste rock — designed to require economic planning and vertical integration.
-- **Librarian** can craft any skill book at basic proficiency — generated from core Eco files to stay in sync with game updates.
+- **Biochemist** is intentionally slower than oil drilling - it's a sustainable alternative, not a direct replacement.
+- **MinesQuarries** provides infinite resources but with high calorie costs, long craft times, and waste rock - designed to require economic planning and vertical integration.
+- **Librarian** can craft any skill book at basic proficiency - generated from core Eco files to stay in sync with game updates.
 - Mods are distributed as `.zip` files that users extract to their server root.
 
 ## Third-party source code reference

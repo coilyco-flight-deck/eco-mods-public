@@ -19,18 +19,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: TruffleHog (filesystem, offline)
         run: |
           cat > /tmp/trufflehog-exclude <<'EOF'
-          ^\.git/
-          ^\.venv/
-          ^venv/
-          ^node_modules/
-          ^__pycache__/
-          ^\.mypy_cache/
-          ^\.pytest_cache/
-          ^\.ruff_cache/
+          (^|/)\.git/
+          (^|/)\.venv/
+          (^|/)venv/
+          (^|/)node_modules/
+          (^|/)__pycache__/
+          (^|/)\.mypy_cache/
+          (^|/)\.pytest_cache/
+          (^|/)\.ruff_cache/
+          (^|/)data/.*\.json$
           EOF
           docker run --rm \
             -v "${{ github.workspace }}:/pwd:ro" \

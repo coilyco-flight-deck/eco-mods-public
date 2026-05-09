@@ -1,0 +1,27 @@
+# Per-repo command allowlist for eco-mods-public. Coily is the canonical
+# entry point for dev verbs here; each command below delegates to a
+# pyinvoke task in tasks.py.
+#
+# Names follow coily's [a-z0-9-] rule. Argv validation rejects shell
+# metacharacters at invocation time, so flags forward verbatim through
+# coily's user-extras mechanism.
+
+commands:
+  build:
+    run: uv run inv build
+    description: Type-check all mods against Eco.ReferenceAssemblies via dotnet build.
+  copy-assets:
+    run: uv run inv copy-assets
+    description: Refresh the assets folder from Eco's AutoGen output. Pass --branch= to target a release branch.
+  zip-assets:
+    run: uv run inv zip-assets
+    description: Zip a single mod's assets for upload. --mod= required.
+  push-asset:
+    run: uv run inv push-asset
+    description: Zip and upload a single mod. --mod= required.
+  bunwulf-agricultural:
+    run: uv run inv bunwulf-agricultural
+    description: Regenerate BunWulfAgricultural recipes from recipes.yml templates.
+  bunwulf-structural:
+    run: uv run inv bunwulf-structural
+    description: Regenerate BunWulfStructural recipes from recipes.yml templates.

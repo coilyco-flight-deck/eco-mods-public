@@ -9,3 +9,7 @@ A collection of public C# gameplay mods for [Eco](https://play.eco/), Strange Lo
 The mods fall into a few clusters. The **BunWulf** family (Agricultural, Biochemical, Educational, HardwareCo) adds extended farming and crop variety, a plant-based Biochemist profession as an alternative to petrochemical oil, a Librarian profession that can craft skill books across every discipline, and a handful of specialty hardware items. Standalone mods include **DirectCarbonCapture** (late-game atmospheric CO2 mitigation), **EcoNil** (weather and moisture mechanics), **MinesQuarries** (infinite but expensive mining and quarrying operations, designed around vertical integration), **ShopBoat** (a mobile shop world object), and **WorldCounter** (world statistics tracking). Released builds are distributed as `.zip` files at the repo root; AGENTS.md documents the asset packaging and deploy workflow.
 
 See also [eco-cycle-prep](https://github.com/coilysiren/eco-cycle-prep) for cycle-prep automation (worldgen rolls, Discord announcements, mod sync). The official modkit lives at [StrangeLoopGames/EcoModKit](https://github.com/StrangeLoopGames/EcoModKit), modding docs are at [docs.play.eco](https://docs.play.eco/) and [wiki.play.eco/en/Modding](https://wiki.play.eco/en/Modding), and other community mods are catalogued on [mod.io](https://mod.io/g/eco).
+
+## Commands
+
+Dev commands are declared in [`.coily/coily.yaml`](.coily/coily.yaml). Run them as `coily exec <verb>`.

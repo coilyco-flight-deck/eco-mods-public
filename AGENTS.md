@@ -124,3 +124,7 @@ A plain commit to `main` is not a deploy trigger by itself. Post when the bits a
 This repo is **public** (`github.com/coilysiren/eco-mods-public`). When a patch note describes a change whose source landed here, include a link to the relevant commit (or the compare view for multi-commit changes) in the message body. Players and outside contributors can then trace exactly what changed without reverse-engineering it from the patch-note prose.
 
 Format: `https://github.com/coilysiren/eco-mods-public/commit/<short-sha>` (or `.../compare/<a>...<b>` for ranges). Paste above the sign-off line. Use the full URL so Discord renders a preview. If the change came from another public sibling repo, link its commit(s) instead (or in addition).
+
+## Commands
+
+Route every dev command through coily, which reads [`.coily/coily.yaml`](.coily/coily.yaml). The lockdown denies bare invocations of the underlying tools (`make`, `uv`, `python3`, etc.). Add new verbs to that file before invoking them.

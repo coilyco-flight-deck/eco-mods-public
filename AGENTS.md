@@ -10,8 +10,8 @@ Collection of gameplay mods for [Eco](https://play.eco/) by Strange Loop Games. 
 
 - **Language**: C# (.NET 10.0)
 - **Game API**: `Eco.ReferenceAssemblies` v0.13.0-beta-release-998
-- **Build**: `dotnet build` / `dotnet publish`
-- **Scripting**: Python (invoke tasks for asset packaging and deployment)
+- **Build**: `dotnet build` / `dotnet publish` (also `coily build`)
+- **Scripting**: Python (coily verbs for asset packaging and recipe codegen)
 
 ## Repository Structure
 
@@ -38,7 +38,7 @@ recipes.yml             # YAML config for recipe transformations
 A significant portion of the codebase is **generated**, not hand-written:
 
 - `main.cs` reads Eco core game files and transforms them into Librarian profession variants using regex-based text processing. It outputs to `Mods/UserCode/BunWulfEducational/`.
-- `tasks.py` + `util.py` + `recipes.yml` + `templates/` handle agricultural mod generation and recipe transformations.
+- `scripts/mods.py` + `util.py` + `recipes.yml` + `templates/` handle agricultural mod generation and recipe transformations.
 - **Do not hand-edit generated files** in `BunWulfEducational/Recipes/Tech/` or `BunWulfEducational/Recipes/Item/` - modify `main.cs` instead.
 - Plant files in `BunWulfAgricultural/Plant/` are generated from `templates/plant.template`.
 
@@ -74,16 +74,16 @@ Recipes inherit from `RecipeFamily`, use `[RequiresSkill]` attributes, define `I
 
 ```sh
 # Build
-dotnet build
+coily build              # or: dotnet build
 
 # Publish
 dotnet publish
 
-# Asset packaging and deployment (Python)
+# Asset packaging and deployment
 pip install -r requirements.txt
-invoke copy-assets
-invoke zip-assets --mod=<ModName>
-invoke push-asset --mod=<ModName>
+coily copy-assets
+coily zip-assets mod=<ModName>
+coily push-asset mod=<ModName>
 ```
 
 Deployment targets:
@@ -105,15 +105,15 @@ The `../Eco/` sibling directory contains vendor-provided game source. Use it as 
 
 When a change from this repo reaches the live Sirens Eco server, post to the Sirens Discord. The tooling lives in `../eco-cycle-prep/` (never reimplement locally):
 
-- Patch note to `#general-public`: `cd ../eco-cycle-prep && inv discord-post --channel=general-public --from-file=<path-to-body.md>`
-- Pre-restart heads-up to `#eco-status`: `cd ../eco-cycle-prep && inv restart-notice [--reason="<short reason>"]`
+- Patch note to `#general-public`: `cd ../eco-cycle-prep && coily discord-post --channel=general-public --from-file=<path-to-body.md>`
+- Pre-restart heads-up to `#eco-status`: `cd ../eco-cycle-prep && coily restart-notice [--reason="<short reason>"]`
 
 For the voice / tone rules, the when-to-post rules, and the private voice guide pointer, consult [`../eco-cycle-prep/AGENTS.md`](../eco-cycle-prep/AGENTS.md). Do not inline curl snippets or channel IDs here.
 
 ### Deploy triggers for eco-mods-public
 
-- `invoke push-asset --mod=<Name>` from this repo (scp + unzip into `/home/kai/Steam/steamapps/common/EcoServer/Mods/UserCode/`).
-- `inv mods-sync` in eco-cycle-prep, when it picks up a change from here.
+- `coily push-asset mod=<Name>` from this repo (scp + unzip into `/home/kai/Steam/steamapps/common/EcoServer/Mods/UserCode/`).
+- `coily mods-sync` in eco-cycle-prep, when it picks up a change from here.
 - A mod.io release that Sirens then pulls.
 - Any direct ssh edit to `/home/kai/Steam/steamapps/common/EcoServer/Mods/UserCode/<Mod>/` on kai-server.
 

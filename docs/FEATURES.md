@@ -81,8 +81,8 @@ World statistics tracking via a **Bookkeeping Desk** world object. Walks blocks 
 Not gameplay features, but part of what the repo ships and worth tracking when evaluating scope.
 
 - **`main.cs`** - CLI tool. Reads Eco core game files and generates the BunWulfEducational Librarian recipes via regex transformation.
-- **`tasks.py` + `util.py` + `recipes.yml` + `templates/`** - Python `invoke` pipeline for asset packaging, agricultural mod generation, and deployment to local Steam install paths (Windows and Linux).
-- **Deployment commands** - `invoke copy-assets`, `invoke zip-assets --mod=<Name>`, `invoke push-asset --mod=<Name>`.
+- **`scripts/mods.py` + `util.py` + `recipes.yml` + `templates/`** - Python pipeline for asset packaging, agricultural mod generation, and deployment. Driven through `make` targets exposed as `coily` verbs.
+- **Deployment commands** - `coily copy-assets`, `coily zip-assets mod=<Name>`, `coily push-asset mod=<Name>`. The upload step itself lives in `coily gaming eco mod push`.
 - **Distribution format** - Per-mod `.zip` at the repo root, extracted by users into the Eco server root.
 
 ## Cross-cutting design intent

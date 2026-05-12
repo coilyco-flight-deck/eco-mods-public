@@ -1,6 +1,8 @@
 # Per-repo command allowlist for eco-mods-public. Coily is the canonical
 # entry point for dev verbs here; each command below delegates to a
-# pyinvoke task in tasks.py.
+# Make target. Operators (human or agent) type `coily <verb>`, not
+# `make <target>` - the lockdown denies bare make / dotnet / python3
+# / scp / ssh invocations.
 #
 # Names follow coily's [a-z0-9-] rule. Argv validation rejects shell
 # metacharacters at invocation time, so flags forward verbatim through
@@ -8,20 +10,20 @@
 
 commands:
   build:
-    run: uv run inv build
+    run: make build
     description: Type-check all mods against Eco.ReferenceAssemblies via dotnet build.
   copy-assets:
-    run: uv run inv copy-assets
-    description: Refresh the assets folder from Eco's AutoGen output. Pass --branch= to target a release branch.
+    run: make copy-assets
+    description: Refresh the assets folder from eco-mods-assets. Args - branch=<release-branch>.
   zip-assets:
-    run: uv run inv zip-assets
-    description: Zip a single mod's assets for upload. --mod= required.
+    run: make zip-assets
+    description: Zip Mods/UserCode/<name> into <name>.zip. Args - mod=<Name>.
   push-asset:
-    run: uv run inv push-asset
-    description: Zip and upload a single mod. --mod= required.
+    run: make push-asset
+    description: Zip a UserCode mod, scp it to kai-server, unzip into the EcoServer tree. Args - mod=<Name>.
   bunwulf-agricultural:
-    run: uv run inv bunwulf-agricultural
-    description: Regenerate BunWulfAgricultural recipes from recipes.yml templates.
+    run: make bunwulf-agricultural
+    description: Regenerate BunWulfAgricultural plants from templates.
   bunwulf-structural:
-    run: uv run inv bunwulf-structural
-    description: Regenerate BunWulfStructural recipes from recipes.yml templates.
+    run: make bunwulf-structural
+    description: Regenerate BunWulfStructural recipes from recipes.yml.

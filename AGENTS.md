@@ -128,3 +128,11 @@ Format: `https://github.com/coilysiren/eco-mods-public/commit/<short-sha>` (or `
 ## Commands
 
 Route every dev command through coily, which reads [`.coily/coily.yaml`](.coily/coily.yaml). The lockdown denies bare invocations of the underlying tools (`make`, `uv`, `python3`, etc.). Add new verbs to that file before invoking them.
+
+## See also
+
+- [README.md](README.md) - human-facing intro.
+- [docs/FEATURES.md](docs/FEATURES.md) - inventory of what ships today.
+- [.coily/coily.yaml](.coily/coily.yaml) - allowlisted commands. Agents route through coily, not bare `make` / `uv` / `python` / `npm` / `cargo` / `dotnet`.
+
+Cross-reference convention from [coilysiren/coilyco-ai#313](https://github.com/coilysiren/coilyco-ai/issues/313).

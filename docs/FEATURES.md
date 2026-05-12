@@ -90,3 +90,11 @@ Not gameplay features, but part of what the repo ships and worth tracking when e
 - **Sustainability framing** - Biochemist, MinesQuarries, EcoNil, and DirectCarbonCapture all sit on a "renewable but expensive" axis rather than "free upgrade".
 - **Vertical integration as a balance lever** - MinesQuarries explicitly relies on it. Biochemist's pricing is tuned against Oil Drilling's full chain.
 - **Vanilla parity by generation** - BunWulfEducational regenerates from Eco core, so it tracks vanilla skill books across patches without hand maintenance.
+
+## See also
+
+- [README.md](../README.md) - human-facing intro.
+- [AGENTS.md](../AGENTS.md) - agent-facing operating rules.
+- [.coily/coily.yaml](../.coily/coily.yaml) - allowlisted commands.
+
+Cross-reference convention from [coilysiren/coilyco-ai#313](https://github.com/coilysiren/coilyco-ai/issues/313).

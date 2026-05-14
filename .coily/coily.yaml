@@ -27,3 +27,16 @@ commands:
   bunwulf-structural:
     run: make bunwulf-structural
     description: Regenerate BunWulfStructural recipes from recipes.yml.
+
+# Catalog metadata for the cross-repo knowledge graph.
+# Schema: coilysiren/coilyco-ai#420 (tracker).
+catalog:
+  kind: Component
+  type: mod
+  system: eco
+  owner: kai
+  lifecycle: production
+  description: "Public C# gameplay mods for Eco: BunWulf professions family, DirectCarbonCapture, MinesQuarries, ShopBoat, EcoNil, WorldCounter."
+  dependsOn: []
+  providesApis:
+    - eco-mods-public

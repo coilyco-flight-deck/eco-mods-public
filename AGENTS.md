@@ -80,7 +80,7 @@ coily build              # or: dotnet build
 dotnet publish
 
 # Asset packaging and deployment
-pip install -r requirements.txt
+uv sync
 coily copy-assets
 coily zip-assets mod=<ModName>
 coily push-asset mod=<ModName>

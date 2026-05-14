@@ -9,7 +9,7 @@ build: ## Type-check all mods against Eco.ReferenceAssemblies via dotnet build.
 	dotnet build --nologo
 
 copy-assets: ## Refresh the assets folder from eco-mods-assets. Args - branch=<release-branch>.
-	@python3 scripts/mods.py copy-assets $(if $(branch),--branch=$(branch))
+	@uv run python scripts/mods.py copy-assets $(if $(branch),--branch=$(branch))
 
 zip-assets: ## Zip Mods/UserCode/<name> into <name>.zip. Args - mod=<Name>.
 	@test -n "$(mod)" || { echo "mod=<Name> is required" >&2; exit 2; }
@@ -21,7 +21,7 @@ push-asset: zip-assets ## Zip a UserCode mod, scp it to kai-server, unzip into t
 	coily gaming eco mod push --src $(mod).zip
 
 bunwulf-agricultural: ## Regenerate BunWulfAgricultural plants from templates.
-	@python3 scripts/mods.py bunwulf-agricultural
+	@uv run python scripts/mods.py bunwulf-agricultural
 
 bunwulf-structural: ## Regenerate BunWulfStructural recipes from recipes.yml.
-	@python3 scripts/mods.py bunwulf-structural
+	@uv run python scripts/mods.py bunwulf-structural

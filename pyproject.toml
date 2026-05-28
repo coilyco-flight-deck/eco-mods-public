@@ -9,3 +9,8 @@ dependencies = [
     "PyYAML",
     "regex",
 ]
+
+[tool.agentic-os.documentation-layout]
+# Mod READMEs live inside each mod's directory as part of its distributed
+# structure, so they are exempt from the root/docs/skill location rule.
+excludes = ["Mods/**"]

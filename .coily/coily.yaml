@@ -38,5 +38,3 @@ catalog:
   lifecycle: production
   description: "Public C# gameplay mods for Eco: BunWulf professions family, DirectCarbonCapture, MinesQuarries, ShopBoat, EcoNil, WorldCounter."
   dependsOn: []
-  providesApis:
-    - eco-mods-public

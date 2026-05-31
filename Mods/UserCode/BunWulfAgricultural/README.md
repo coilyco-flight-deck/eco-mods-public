@@ -2,7 +2,7 @@
 
 A mod that a suite of recipes for agriculture. The goal of these recipes is to increase the flexibility of the Farming Speciality and allow it to impact the economy in novel ways.
 
-You can find the source code for this mod here: https://github.com/coilysiren/eco-mods-public/
+You can find the source code for this mod here: https://github.com/coilyco-flight-deck/eco-mods-public/
 
 ## Installation
 

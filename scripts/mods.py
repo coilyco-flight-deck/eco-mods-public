@@ -64,7 +64,7 @@ def copy_assets(branch: str = ""):
     cmd = ["git", "clone", "--depth", "1"]
     if branch:
         cmd += ["-b", branch]
-    cmd += ["--", "git@github.com:coilysiren/eco-mods-assets.git", "./eco-server/assets"]
+    cmd += ["--", "git@github.com:coilyco-bridge/eco-mods-assets.git", "./eco-server/assets"]
     subprocess.run(cmd, check=True)
 
     shutil.rmtree(

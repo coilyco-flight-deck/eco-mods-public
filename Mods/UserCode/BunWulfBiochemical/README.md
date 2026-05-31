@@ -2,7 +2,7 @@
 
 A mod that adds a Biochemist profession who's role is to go toe to toe with Oil Drilling. The Biochemist gets recipes to make Biodiesel, Plastic, Rubber, Epoxy, and Nylon. The recipes have similar costs to Oil Drilling, but the Biochemist is more sustainable and has a lower impact on the environment.
 
-You can find the source code for this mod here: https://github.com/coilysiren/eco-mods-public/
+You can find the source code for this mod here: https://github.com/coilyco-flight-deck/eco-mods-public/
 
 ## Installation
 

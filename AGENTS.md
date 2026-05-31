@@ -60,10 +60,10 @@ Targets: Windows `C:\Program Files (x86)\Steam\steamapps\common\Eco\Eco_Data\Ser
 
 Commit to main directly, push after each commit, no PRs unless asked.
 
-Public repo. Link back to the commit (or compare view) in each patch note. Format: `https://github.com/coilysiren/eco-mods-public/commit/<short-sha>`. Paste above the sign-off so Discord renders a preview.
+Public repo. Link back to the commit (or compare view) in each patch note. Format: `https://github.com/coilyco-flight-deck/eco-mods-public/commit/<short-sha>`. Paste above the sign-off so Discord renders a preview.
 
 ## See also
 
 - [README.md](README.md), [docs/FEATURES.md](docs/FEATURES.md), [docs/codegen.md](docs/codegen.md), [.coily/coily.yaml](.coily/coily.yaml).
 
-Cross-reference convention from [coilysiren/agentic-os#59](https://github.com/coilysiren/agentic-os/issues/59).
+Cross-reference convention from [coilysiren/agentic-os#59](https://github.com/coilyco-flight-deck/agentic-os/issues/59).

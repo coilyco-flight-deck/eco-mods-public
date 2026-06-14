@@ -1,0 +1,40 @@
+# Per-repo command allowlist for eco-mods-public. Coily is the canonical
+# entry point for dev verbs here; each command below delegates to a
+# Make target. Operators (human or agent) type `coily <verb>`, not
+# `make <target>` - the lockdown denies bare make / dotnet / python3
+# / scp / ssh invocations.
+#
+# Names follow coily's [a-z0-9-] rule. Argv validation rejects shell
+# metacharacters at invocation time, so flags forward verbatim through
+# coily's user-extras mechanism.
+
+commands:
+  build:
+    run: make build
+    description: Type-check all mods against Eco.ReferenceAssemblies via dotnet build.
+  copy-assets:
+    run: make copy-assets
+    description: Refresh the assets folder from eco-mods-assets. Args - branch=<release-branch>.
+  zip-assets:
+    run: make zip-assets
+    description: Zip Mods/UserCode/<name> into <name>.zip. Args - mod=<Name>.
+  push-asset:
+    run: make push-asset
+    description: Zip a UserCode mod, scp it to kai-server, unzip into the EcoServer tree. Args - mod=<Name>.
+  bunwulf-agricultural:
+    run: make bunwulf-agricultural
+    description: Regenerate BunWulfAgricultural plants from templates.
+  bunwulf-structural:
+    run: make bunwulf-structural
+    description: Regenerate BunWulfStructural recipes from recipes.yml.
+
+# Catalog metadata for the cross-repo knowledge graph.
+# Schema: coilysiren/agentic-os-kai#420 (tracker).
+catalog:
+  kind: Component
+  type: mod
+  system: eco
+  owner: kai
+  lifecycle: production
+  description: "Public C# gameplay mods for Eco: BunWulf professions family, DirectCarbonCapture, MinesQuarries, ShopBoat, EcoNil, WorldCounter."
+  dependsOn: []

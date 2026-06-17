@@ -26,18 +26,18 @@ The `../Eco/` sibling has vendor-provided game source. Background-only. Do not p
 
 ## Commands
 
-Route dev verbs through `coily`, which reads [.coily/coily.yaml](.coily/coily.yaml).
+Route dev verbs through `ward`, which reads [.ward/ward.yaml](.ward/ward.yaml) (run verbs with `ward exec <verb>`).
 
 ```sh
-coily build
-coily copy-assets
-coily zip-assets mod=<ModName>
-coily push-asset mod=<ModName>
+ward exec build
+ward exec copy-assets
+ward exec zip-assets mod=<ModName>
+ward exec push-asset mod=<ModName>
 ```
 
 ## Validation
 
-`coily build` type-checks all mods against `Eco.ReferenceAssemblies`. Run `pre-commit run --all-files` before pushing. Run tests, linters, and builds without asking. Fix failures. Never use `--no-verify`.
+`ward exec build` type-checks all mods against `Eco.ReferenceAssemblies`. Run `pre-commit run --all-files` before pushing. Run tests, linters, and builds without asking. Fix failures. Never use `--no-verify`.
 
 ## Safety
 
@@ -54,7 +54,7 @@ Voice rules in [`../eco-cycle-prep/AGENTS.md`](../eco-cycle-prep/AGENTS.md). Pos
 
 ## Release
 
-Targets: Windows `C:\Program Files (x86)\Steam\steamapps\common\Eco\Eco_Data\Server\`, Linux `/home/kai/Steam/steamapps/common/EcoServer/`. Mods distribute as `.zip` files users extract to their server root via `coily push-asset`.
+Targets: Windows `C:\Program Files (x86)\Steam\steamapps\common\Eco\Eco_Data\Server\`, Linux `/home/kai/Steam/steamapps/common/EcoServer/`. Mods distribute as `.zip` files users extract to their server root via `ward exec push-asset`.
 
 ## Agent rules
 
@@ -64,6 +64,6 @@ Public repo. Link back to the commit (or compare view) in each patch note. Forma
 
 ## See also
 
-- [README.md](README.md), [docs/FEATURES.md](docs/FEATURES.md), [docs/codegen.md](docs/codegen.md), [.coily/coily.yaml](.coily/coily.yaml).
+- [README.md](README.md), [docs/FEATURES.md](docs/FEATURES.md), [docs/codegen.md](docs/codegen.md), [.ward/ward.yaml](.ward/ward.yaml) - allowlisted commands (`ward exec`). ([.coily/coily.yaml](.coily/coily.yaml) retained during the .coily -> .ward migration window.)
 
 Cross-reference convention from [coilysiren/agentic-os#59](https://github.com/coilyco-flight-deck/agentic-os/issues/59).
